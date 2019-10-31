@@ -18,3 +18,9 @@ RUN conda install nbgrader --no-deps --yes
 # More info at https://rise.readthedocs.io
 # Note: Installing RISE with --no-deps because all the neeeded deps are already present.
 RUN conda install rise --no-deps --yes
+
+# Lastly, install nbzip so users can download a folder in the tree view.
+RUN pip install nbzip
+RUN jupyter serverextension enable --py nbzip --sys-prefix
+RUN jupyter nbextension install --py nbzip
+RUN jupyter nbextension enable --py nbzip
