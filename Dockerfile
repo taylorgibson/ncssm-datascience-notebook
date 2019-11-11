@@ -20,7 +20,4 @@ RUN conda install nbgrader --no-deps --yes
 RUN conda install rise --no-deps --yes
 
 # Lastly, install nbzip so users can download a folder in the tree view.
-RUN pip install nbzip
-RUN jupyter serverextension enable --py nbzip --sys-prefix
-RUN jupyter nbextension install --py nbzip
-RUN jupyter nbextension enable --py nbzip
+RUN pip install nbresuse --no-cache-dir 
