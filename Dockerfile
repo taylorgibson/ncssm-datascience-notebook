@@ -8,6 +8,9 @@ RUN conda install fuzzywuzzy --yes
 # Then install UC Berkeley's datascience package.
 RUN pip install --no-cache-dir datascience
 
+# Then install UC Berkeley's OKPY package for autograding.
+RUN pip install okpy
+
 # Then install nbgrader with --no-deps because all the neeeded deps are already present.
 # Additionally, latest nbgrader release is pinging an old ipython version breaking stuff.
 # Note: Eventually, when things get fixed upstream we can remove the previous installation
@@ -19,5 +22,5 @@ RUN conda install nbgrader --no-deps --yes
 # Note: Installing RISE with --no-deps because all the neeeded deps are already present.
 RUN conda install rise --no-deps --yes
 
-# Lastly, install nbzip so users can download a folder in the tree view.
+# Lastly, install nbresuse so users can see the server resources they are using.
 RUN pip install nbresuse --no-cache-dir 
