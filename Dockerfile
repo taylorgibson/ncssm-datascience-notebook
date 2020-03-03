@@ -16,6 +16,8 @@ RUN pip install okpy
 # Note: Eventually, when things get fixed upstream we can remove the previous installation
 # of "fuzzywuzzy" and remove the --no-deps flag.
 RUN conda install nbgrader --no-deps --yes
+RUN pip install nbgitpuller
+RUN jupyter serverextension enable nbgitpuller --sys-prefix
 
 # Add RISE 5.4.1 to the mix as well so user can show live slideshows from their notebooks
 # More info at https://rise.readthedocs.io
