@@ -20,9 +20,3 @@ RUN jupyter serverextension enable nbgitpuller --sys-prefix
 
 # Install nbresuse so users can see the server resources they are using.
 RUN pip install nbresuse --no-cache-dir 
-
-# Install zip and unzip packages.
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    zip \
-    unzip 
