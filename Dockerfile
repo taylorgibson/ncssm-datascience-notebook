@@ -4,7 +4,7 @@ FROM jupyter/datascience-notebook:latest
 RUN pip install --no-cache-dir datascience
 
 # Then install UC Berkeley's otter-grader package for autograding.
-RUN pip install --no-cache-dir otter-grader==1.0.0.b10
+RUN pip install --no-cache-dir otter-grader
 
 # Then install astropy for Computational Physics.
 RUN pip install --no-cache-dir astropy
