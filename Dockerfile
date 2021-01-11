@@ -9,6 +9,9 @@ RUN pip install --no-cache-dir otter-grader
 # Then install astropy for Computational Physics.
 RUN pip install --no-cache-dir astropy
 
+# Then install pymongo for MongoDB driver support.
+RUN pip install --no-cache-dir pymongo
+
 #Then install and actiavate nbgitpuller so files can be pulled from github
 RUN pip install nbgitpuller
 RUN jupyter serverextension enable nbgitpuller --sys-prefix
