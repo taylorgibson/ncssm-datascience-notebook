@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir otter-grader
 RUN pip install --no-cache-dir astropy
 
 # Then install pymongo for MongoDB driver support.
-RUN pip install --no-cache-dir pymongo
+RUN pip install --no-cache-dir pymongo[tls,srv]
 
 #Then install and actiavate nbgitpuller so files can be pulled from github
 RUN pip install nbgitpuller
