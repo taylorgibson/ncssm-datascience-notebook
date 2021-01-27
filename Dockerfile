@@ -17,7 +17,7 @@ RUN pip install nbgitpuller
 RUN jupyter serverextension enable nbgitpuller --sys-prefix
 
 # Install nbresuse so users can see the server resources they are using.
-RUN pip install --no-cache-dir nbresuse
+RUN pip install --no-cache-dir jupyter-resource-usage
 
 USER root
 
