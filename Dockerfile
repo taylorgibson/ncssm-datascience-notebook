@@ -1,4 +1,17 @@
 FROM jupyter/datascience-notebook:latest
+USER ${NB_UID}
+
+# Install NodeJS so jupyterlab extensions can be built
+RUN conda install --quiet --yes \
+    'nodejs' \ 
+    'plotly' && \
+    conda clean --all -f -y && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
+# Then install plotly and the jupyterlab extension for it
+RUN jupyter labextension install jupyterlab-plotly
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget
 
 # Then install UC Berkeley's datascience package.
 RUN pip install --no-cache-dir datascience
