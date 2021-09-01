@@ -1,4 +1,13 @@
 FROM jupyter/datascience-notebook:latest
+
+# Set user as root to do system updates so everything is up-to-date
+USER root
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    zip \
+    unzip
+
+# Set user as the notebook user to install packages
 USER ${NB_UID}
 
 # Install NodeJS so jupyterlab extensions can be built
@@ -12,6 +21,9 @@ RUN conda install --quiet --yes \
 # Then install plotly and the jupyterlab extension for it
 RUN jupyter labextension install jupyterlab-plotly
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget
+
+# Install a spell checker for JupyterLab
+RUN pip install --no-cache-dir jupyterlab-spellchecker
 
 # Then install UC Berkeley's datascience package.
 RUN pip install --no-cache-dir datascience
@@ -33,8 +45,3 @@ RUN jupyter serverextension enable nbgitpuller --sys-prefix
 RUN pip install --no-cache-dir jupyter-resource-usage
 
 USER root
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    zip \
-    unzip
