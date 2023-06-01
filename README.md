@@ -10,3 +10,9 @@ The `ncssm-datascience-notebook` image adds nbzip, datascience, RISE and nbgrade
 
 The `education-notebook` contains Python, R, and Julia as well as frequently
 used data science libraries.
+
+## How to build
+
+`docker build -t taylorgibson/ncssm-datascience-notebook:<tag> .`
+
+`docker push taylorgibson/ncssm-datascience-notebook:<tag>`
